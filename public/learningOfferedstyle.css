@@ -1,0 +1,46 @@
+.popup {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 40px;
+    border: 1px solid black;
+    color:black;
+  }
+  
+  .popup a {
+    display: block;
+    margin-bottom: 10px;
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 30px;
+    border:1px solid black;
+    border-radius: 150px;
+    cursor: pointer;
+  }
+  .popup a:hover{
+    color:white;
+    background-color: violet;
+  }
+  
+  .popup .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    cursor: pointer;
+    color: black;
+   
+  }
+  
+  .popup .close:hover::after {
+    content: "Close";
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding: 2px;
+    border-radius: 5px;
+  }

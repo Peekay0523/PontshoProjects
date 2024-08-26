@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" href="/homestyle.css" />
+  
+  
+</head>
+
+<body>
+
+  <div class="container">
+ 
+    <div class="container2">
+
+  <div class="box0">
+    <a href="#">
+    <p id="nameAndSurname">{{sName}} {{sSurname}}</p>
+     </a>
+  </div>
+
+    <div class="box1">
+    <a href="/learningOfferedEng">
+    <p>ENGLISH</p>
+
+    <p class="txt">**English**:.</p>
+     </a>
+  </div>
+
+    <div class="box2">
+    <a href="/learningOfferedZulu">
+    <p>ISIZULU</p>
+
+    <p class="txt">**Zulu**:.</p>
+
+     </a>
+
+  </div>
+
+    <div class="box3">
+     <a href="/learningOfferedSepedi">
+    <p>SEPEDI</p>
+
+    <p class="txt">**Sepedi**:.</p>
+     </a>
+ 
+
+    <div class="navigation" onclick="">
+      <div class="menu-toggle" onclick="hideText()">
+         <h3 lign="center">Dashboard</h3>
+      </div>
+      <ul class="list">
+        <li class="list-item active" style="--color:#f44336"><a href="#">
+            <span class="icon">
+              <ion-icon name="home-outline"></ion-icon>
+            </span>
+            <span class="text" id="home" onclick="hideText();dissableLearning();">Home</span>
+          </a></li>
+        <li class="list-item" style="--color:#ffa117"><a href="/profile" >
+            <span class="icon">
+              <ion-icon name="alert-outline"></ion-icon>
+            </span>
+            <span class="text" onclick="hideText();dissableLearning();">Profile</span>
+          </a></li>
+       <li class="list-item" style="--color:#0fc70f">
+      <a href="#">
+        <span class="icon">
+          <ion-icon name="call-outline"></ion-icon>
+        </span>
+        <span class="text" onclick="toggleAccountOptions()">Account</span>
+        <!-- Account options -->
+        
+        <div class="accountOptions" style="display: none;">
+          <a href="/updateAccount">Update Account</a>
+          <a href="/deleteAccount">Delete Account</a>
+       
+        </div>
+      </a>
+    </li>
+        <li class="list-item" style="--color:#b145e9"><a href="/signInUp">
+            <span class="icon">
+              <ion-icon name="pencil-outline"></ion-icon>
+            </span>
+            <span class="text">Log out!</span>
+          </a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navigation = document.querySelector('.navigation');
+    menuToggle.onclick = () => {
+      navigation.classList.toggle('open');
+    }
+
+    const listItems = document.querySelectorAll('.list-item');
+    listItems.forEach(item => {
+      item.onclick = () => {
+        listItems.forEach(item => item.classList.remove('active'));
+        item.classList.add('active');
+      }
+    });
+
+    document.querySelector('.accountInfo').style.visibility = 'hidden';
+    document.querySelector('.learning').style.visibility = 'hidden';
+
+    function displayText() {
+
+      document.getElementById('up').style.color = 'red';
+      document.querySelector('.accountInfo').style.visibility = 'visible';
+
+    }
+
+    function hideText() {
+
+      document.getElementById('up').style.color = 'red';
+      document.querySelector('.accountInfo').style.visibility = 'hidden';
+
+    }
+
+    function displayLearning(){
+      document.querySelector('.learning').style.visibility = 'visible';
+    }
+    function dissableLearning(){
+      document.querySelector('.learning').style.visibility = 'hidden';
+    }
+
+    
+
+  </script>
+  <script>
+  // Function to toggle visibility of account options
+  function toggleAccountOptions() {
+    var accountOptions = document.querySelector('.accountOptions');
+    if (accountOptions.style.display === "none") {
+      accountOptions.style.display = "block";
+    } else {
+      accountOptions.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+
+</html>
+
+
+
+
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Languages </title>
+<link rel="stylesheet" href="learningOfferedstyle.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+ 
+  <div id="popupPage" class="popup">
+    <span id="closeBtn" class="close">X</span>
+    <p><a href="/engAnimals">Animals <i class='bx bxs-dog'></i></a></p>
+    
+    <p><a href="/engCareers" >Careers <i class='bx bxs-briefcase-alt-2'></i></a></p>
+    <p><a href="/engInfrastructure" >Infrastructure <i class='bx bxs-buildings'></i></a></p>
+    <p><a href="/engTransport" >Transport <i class='bx bxs-car'></i></a></p>
+    <p><a href="/engNaturalThings" >Natural Things <i class='bx bxs-tree'></i></a></p>
+    <p><a href="/engGeneralThings" >General Things <i class='bx bxs-bed'></i></a></p>
+    <p><a href="/checkYourselfEng" >Practise pronunciation <i class='bx bx-book-reader'></i></a></p>
+    <p><a href="/quizzesEng" >Quizzes <i class='bx bx-book'></i></a></p>
+
+  </div>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded',function()
+{
+  document.getElementById('popupPage').style.display='block';
+
+});
+document.getElementById("closeBtn").addEventListener("click", function() {
+  document.getElementById("popupPage").style.display = "none";
+});
+
+</script>
+</body>
+</html>

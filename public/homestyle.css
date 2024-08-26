@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: lightblue;
+}
+
+.navigation {
+  position: fixed;
+  inset: 20px 0 20px 20px; 
+  width: 250px;
+  min-height: 500px;
+  background: #fff;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3{
+  text-align: center;
+}
+.navigation .menu-toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 20px;
+} 
+
+.navigation ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+
+
+.navigation ul li {
+  list-style: none;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+  margin-left:18%;
+  margin-bottom: 60%;
+  color: black;
+  font-size: 110%;
+}
+
+.accountOptions
+{
+    margin-left: 2px;
+    padding-left: 3px;
+    margin-bottom: 1px;
+    padding-bottom: 10%;
+    
+      display: none;
+      position: relative;
+      width: auto;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  }
+
+
+
+
+
+.box0{
+
+   border-radius: 13px;
+   width: 67%;
+   height: 7%;
+   position: absolute;
+   left: 10%;
+   top: 3%;
+   background-color: white;
+   margin-left: 16%;
+ 
+ }
+.box0:hover{
+  background-color: pink;
+}
+.box1{
+
+  border-radius: 13px;
+  width: 32%;
+  height: 15%;
+  position: absolute;
+  left: 10%;
+  top: 32%;
+  
+  background-color: white;
+  margin-left: 16%;
+
+
+}
+.box2{
+  background-color: white;
+  position: absolute;
+  width: 32%;
+  left: 10%;
+  top: 14%;
+  
+  border-radius: 13px;
+  height: 15%;
+  margin-left: 16%;
+}
+.box3{
+  background-color: white;
+  position: absolute;
+  width: 32%;
+  right: 7%;
+  top: 14%;
+  
+  border-radius: 13px;
+  height: 15%;
+
+}
+.box4{
+
+  background-color: white;
+  position: fixed;
+  width: 32%;
+  right: 7%;
+  top: 32%;
+  
+  border-radius: 13px;
+  height: 15%;
+ 
+
+}
+p{
+  text-align: center;
+  font-size: 15px;
+ 
+}
+.txt{
+  position: absolute;
+  bottom: 35%;
+  top: 20%;
+  
+}
+
+#nameAndSurname{
+
+  text-align: right;
+  margin-top: 1.5%;
+  text-decoration: none;
+  margin-right: 2%;
+  color: black;
+
+
+}
+
+.learning a {
+
+    text-align: left;
+}
+
+

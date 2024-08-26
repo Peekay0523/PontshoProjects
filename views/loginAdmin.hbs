@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+     <link rel="stylesheet" href="/signinstyle.css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="logo">
+            <img src="/OIP.jpeg" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+          <p align="center"> Lingo </p>
+        </div>
+        <form action="/loginAdmin" class="p-3 mt-3" method="post">
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="email" id="userName" placeholder="Username" required>
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn mt-3">Login</button>
+        </form>
+        <div class="text-center fs-6" id="here">
+            <a href="/adminForgetPassword">Forget password?</a> 
+        </div>
+    </div>
+</body>
+</html>

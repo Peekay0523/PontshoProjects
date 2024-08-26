@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Yourself</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Check Yourself</h1>
+        <p>Select an audio from the list and try to repeat it.</p>
+
+        <!-- Dropdown to select an audio entry -->
+        <select id="audioSelect" class="form-control mb-3" name="audioSelect">
+            {{#each entries}}
+                <option value="{{id}}" data-audio="{{audio}}">{{name}}</option>
+            {{/each}}
+        </select>
+        <button id="loadAudioButton" class="btn btn-primary mb-3">Load Audio</button>
+
+        <!-- Audio player for database audio -->
+        <h5>Listen to the correct pronunciation:</h5>
+        <audio id="correctAudio" controls>
+            <source src="" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- Audio recording controls -->
+        <h5>Record your audio:</h5>
+        <button id="recordButton" class="btn btn-primary">Record</button>
+        <button id="stopButton" class="btn btn-danger" disabled>Stop</button>
+
+        <h5>Your Recording:</h5>
+        <audio id="userAudio" controls></audio>
+
+        <!-- Form to submit the recorded audio -->
+        <form id="uploadForm" action="/checkYourselfEng" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="entryId" id="entryIdInput">
+            <input type="hidden" name="audio" id="audioInput">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loadAudioButton').addEventListener('click', () => {
+            const select = document.getElementById('audioSelect');
+            const selectedOption = select.options[select.selectedIndex];
+            const audioSrc = selectedOption.getAttribute('data-audio');
+            const entryId = selectedOption.value;
+
+            document.getElementById('correctAudio').src = audioSrc;
+            document.getElementById('entryIdInput').value = entryId;
+        });
+
+        let chunks = [];
+        let recorder;
+        let audioBlob;
+
+        document.getElementById('recordButton').addEventListener('click', () => {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(stream => {
+                    recorder = new MediaRecorder(stream);
+                    recorder.ondataavailable = event => chunks.push(event.data);
+                    recorder.onstop = () => {
+                        audioBlob = new Blob(chunks, { type: 'audio/wav' });
+                        const audioUrl = URL.createObjectURL(audioBlob);
+                        document.getElementById('userAudio').src = audioUrl;
+                        const reader = new FileReader();
+                        reader.readAsDataURL(audioBlob);
+                        reader.onloadend = () => {
+                            document.getElementById('audioInput').value = reader.result;
+                        };
+                    };
+                    recorder.start();
+                    document.getElementById('recordButton').disabled = true;
+                    document.getElementById('stopButton').disabled = false;
+                });
+        });
+
+        document.getElementById('stopButton').addEventListener('click', () => {
+            recorder.stop();
+            document.getElementById('recordButton').disabled = false;
+            document.getElementById('stopButton').disabled = true;
+        });
+
+        document.getElementById('uploadForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const entryIdInput = document.getElementById('entryIdInput');
+            const audioInput = document.getElementById('audioInput');
+            const formData = new FormData();
+
+            formData.append('entryId', entryIdInput.value);
+
+            const audioBlob = dataURItoBlob(audioInput.value);
+            formData.append('audio', audioBlob, 'recording.wav');
+
+            fetch('/check-yourself', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+                alert('Audio uploaded successfully!');
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        });
+
+        // Convert base64 to Blob
+        function dataURItoBlob(dataURI) {
+            const byteString = atob(dataURI.split(',')[1]);
+            const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+            const ab = new ArrayBuffer(byteString.length);
+            const ia = new Uint8Array(ab);
+            for (let i = 0; i < byteString.length; i++) {
+                ia[i] = byteString.charCodeAt(i);
+            }
+            return new Blob([ab], { type: mimeString });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

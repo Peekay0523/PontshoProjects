@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Languages Offered</title>
+<link rel="stylesheet" href="learningOfferedstyle.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+ 
+  <div id="popupPage" class="popup">
+    <span id="closeBtn" class="close">X</span>
+    <p><a href="/zuluAnimals">Animals <i class='bx bxs-dog'></i></a></p>
+    
+    <p><a href="/zuluCareers" >Careers <i class='bx bxs-briefcase-alt-2'></i></a></p>
+    <p><a href="/zuluInfrastructure" >Infrastructure <i class='bx bxs-buildings'></i></a></p>
+    <p><a href="/zuluTransport" >Transport <i class='bx bxs-car'></i></a></p>
+    <p><a href="/zuluNaturalThings" >Natural Things <i class='bx bxs-tree'></i></a></p>
+    <p><a href="/zuluGeneralThings" >General Things <i class='bx bxs-bed'></i></a></p>
+    <p><a href="/checkYourselfZulu" >Practise pronunciation<i class='bx bx-book-reader'></i></a></p>
+    <p><a href="/quizesZulu" >Quizzes<i class='bx bx-book'></i></a></p>
+
+  </div>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded',function()
+{
+  document.getElementById('popupPage').style.display='block';
+
+});
+document.getElementById("closeBtn").addEventListener("click", function() {
+  document.getElementById("popupPage").style.display = "none";
+});
+
+</script>
+</body>
+</html>

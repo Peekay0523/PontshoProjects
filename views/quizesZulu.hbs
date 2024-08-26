@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Quizzes</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .quiz-selection-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .quiz-selection-box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .quiz-selection-box h1 {
+            margin-bottom: 20px;
+        }
+
+        .quiz-selection-box ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .quiz-selection-box ol li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-selection-container">
+        <div class="quiz-selection-box">
+            <h1>Choose Quiz to Attempt</h1>
+            <ol>
+                <li><a href="/zuluImagesAndNames" class="btn btn-primary">Images and Names</a></li>
+                <li><a href="/zuluDescriptionsAndNames" class="btn btn-primary">Descriptions and Names</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

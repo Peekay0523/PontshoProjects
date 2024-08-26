@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, 
+                   initial-scale=1.0">
+  <link rel="stylesheet" href="/deleteAccount.css" />
+</head>
+
+<body>
+
+    <form action="/updateAccount" method="post">
+
+        <div id="myPopup" class="popup">
+            
+            <div class="popup-content">
+                <p><a href="/homePage">&#8592;</a></p>
+                <div class="page-content page-container" id="page-content">
+                    
+                    <div class="padding">
+                        <div class="row container d-flex justify-content-center">
+                            
+                          <!-- <div class="col-xl-6 col-md-12"> --> 
+                             <!--  <div class="card user-card-full"> -->
+                                    <div class="row m-l-0 m-r-0">
+                                       <div class="col-sm-2 bg-c-lite-green user-profile"> 
+                                 
+                                     </div> 
+                                      
+                                       
+                                            <div class="card-block">
+                                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Account Details:</h6>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Name : {{name}}</p>
+                                                         <br>
+                                                    </div>
+                                                     <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Surname : {{surname}}</p>
+                                                         <br>
+                                                    </div>
+                                                     <div class="col-sm-6">
+                                                        <p class="m-b-10 f-w-600">Email Address : {{email}}</p>
+                                                         <br>
+                                                    </div>
+                                                     <div class="col-sm-6">
+                                                        <input type="text" name="name" placeholder="Update Name">
+                                                         <br>
+                                                         <input type="text" name="surname" placeholder="Update Surname">
+                                                         <br>
+                                                           <input type="email" name="email" placeholder="Update Email Address">
+                                                         <br>
+                                                    </div>
+                                             
+                                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="closePopUp">
+                    Update Account
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+
+
+        myPopup.classList.add("show");
+
+        closePopup.addEventListener("click", function () {
+            myPopup.classList.remove("show");
+        });
+        window.addEventListener("click", function (event) {
+            if (event.target == myPopup) {
+                myPopup.classList.remove("show");
+            }
+        });
+
+          function print(){
+
+              alert();
+
+          }
+    </script>
+</body>
+
+</html>

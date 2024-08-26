@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Languages Offered</title>
+<link rel="stylesheet" href="learningOfferedstyle.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+
+ 
+  <div id="popupPage" class="popup">
+    <span id="closeBtn" class="close">X</span>
+    <p><a href="#">ANIMALS</a></p>
+    <p><a href="#" >CAREERS</a></p>
+    <p><a href="#" >INFRASCRUCTURES</a></p>
+    <p><a href="#" >TRANSPORTATION</a></p>
+   <p> <a href="#" >NATURAL THINGS</a></p>
+
+  </div>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded',function()
+{
+  document.getElementById('popupPage').style.display='block';
+
+});
+document.getElementById("closeBtn").addEventListener("click", function() {
+  document.getElementById("popupPage").style.display = "none";
+});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sepedi Descriptions and Names Quiz</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Increase flashcard size */
+        .quiz-question {
+            width: 150%; /* Adjust width as needed */
+            padding: 30px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: #f8f9fa; /* Change background color if needed */
+        }
+
+        /* Center content */
+        .quiz-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="container quiz-container">
+        <h1 class="mt-5 text-center">Sepedi Quiz with Descriptions and Names</h1>
+        <h3>Answer the following questions in Sepedi</h3>
+        <p class="text-center">Question <span id="current-question">1</span> of {{totalQuestions}}</p>
+        <form id="quiz-form" action="/sepediDescriptionsAndNames" method="POST">
+            {{#each entries}}
+                <div class="row justify-content-center quiz-question">
+                    <div class="col-md-8"> <!-- Adjust column size as needed -->
+                        <div>
+                            <p>{{this.description}}</p>
+                            <div class="form-group">
+                                <label for="answer{{@index}}">Your Answer:</label>
+                                <input type="text" class="form-control" id="answer{{@index}}" name="answers[]">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+            <div class="text-center">
+                <button type="button" id="next-button" class="btn btn-primary mt-3">Next</button>
+                <button type="submit" id="submit-button" class="btn btn-success mt-3" style="display: none;">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap and jQuery JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            let currentQuestionIndex = 0;
+            const totalQuestions = {{totalQuestions}};
+
+            function showQuestion(index) {
+                $('.quiz-question').hide();
+                $('.quiz-question').eq(index).show();
+                $('#current-question').text(index + 1);
+            }
+
+            $('#next-button').click(function() {
+                if (currentQuestionIndex < totalQuestions - 1) {
+                    currentQuestionIndex++;
+                    showQuestion(currentQuestionIndex);
+                }
+                if (currentQuestionIndex === totalQuestions - 1) {
+                    $('#next-button').hide();
+                    $('#submit-button').show();
+                }
+            });
+
+            // Show the first question initially
+            showQuestion(currentQuestionIndex);
+        });
+    </script>
+</body>
+</html>
